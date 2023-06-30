@@ -1,6 +1,11 @@
 #!/bin/bash
 
-if [[ $1 == "--data" ]]; then
+if [[ $1 == "--help" ]]; then
+    echo "Dostępne opcje:"
+    echo "--data - wyświetla aktualną datę"
+    echo "--logs [liczba] - tworzy określoną liczbę plików logx.txt"
+    echo "--help - wyświetla dostępne opcje (argumenty)"
+elif [[ $1 == "--data" ]]; then
     current_date=$(date +%Y-%m-%d)
     echo "Aktualna data: $current_date"
 elif [[ $1 == "--logs" ]]; then
@@ -18,5 +23,5 @@ elif [[ $1 == "--logs" ]]; then
         echo "Data utworzenia: $(date)" >> "${filename}"
     done
 else
-    echo "Podaj argument --data lub --logs [liczba], aby uruchomić skrypt."
+    echo "Podaj argument --help, aby wyświetlić dostępne opcje."
 fi
