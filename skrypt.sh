@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [[ $1 == "--help" ]]; then
+if [[ $1 == "-h" || $1 == "--help" ]]; then
     echo "Dostępne opcje:"
     echo "-d, --date - wyświetla aktualną datę"
     echo "-l, --logs [liczba] - tworzy określoną liczbę plików logx.txt"
