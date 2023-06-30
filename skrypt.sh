@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [[ $1 == "-h" || $1 == "--help" ]]; then
+if [[ $1 == "--help" ]]; then
     echo "Dostępne opcje:"
     echo "-d, --date - wyświetla aktualną datę"
     echo "-l, --logs [liczba] - tworzy określoną liczbę plików logx.txt"
@@ -22,6 +22,10 @@ elif [[ $1 == "-l" || $1 == "--logs" ]]; then
         echo "Nazwa skryptu: $0" >> "${filename}"
         echo "Data utworzenia: $(date)" >> "${filename}"
     done
+elif [[ $1 == "--init" ]]; then
+    git clone https://github.com/twoje-repozytorium.git
+
+    export PATH=$PATH:$(pwd)/twoje-repozytorium
 else
     echo "Podaj argument --help, aby wyświetlić dostępne opcje."
 fi
