@@ -22,6 +22,22 @@ elif [[ $1 == "-l" || $1 == "--logs" ]]; then
         echo "Nazwa skryptu: $0" >> "${filename}"
         echo "Data utworzenia: $(date)" >> "${filename}"
     done
+elif [[ $1 == "-e" || $1 == "--error" ]]; then
+    if [[ -z $2 ]]; then
+        num_errors=100
+    else
+        num_errors=$2
+    fi
+
+    for ((i=1; i<=num_errors; i++))
+    do
+        error_dir="error${i}"
+        filename="${error_dir}/error${i}.txt"
+        mkdir -p "${error_dir}"
+        echo "Nazwa pliku: ${filename}" > "${filename}"
+        echo "Nazwa skryptu: $0" >> "${filename}"
+        echo "Data utworzenia: $(date)" >> "${filename}"
+    done
 elif [[ $1 == "--init" ]]; then
     git clone https://github.com/twoje-repozytorium.git
 
